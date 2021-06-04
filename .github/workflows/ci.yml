@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repo
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: print job details
+        run: |
+          echo "github_ref ${{ github.ref }}"
+          echo "github_event_name ${{ github.event_name }}"
+      - name: npm install
+        run: npm ci
+
+      - name: lint
+        run: npm run lint

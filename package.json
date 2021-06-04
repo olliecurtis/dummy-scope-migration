@@ -1,0 +1,39 @@
+{
+  "name": "@skyscanner/foundations-migration",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "@skyscanner/foundations-migration": "index.js"
+  },
+  "scripts": {
+    "lint": "eslint . --ext js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skyscanner/foundations-migration.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/skyscanner/foundations-migration#readme",
+  "dependencies": {
+    "colors": "^1.4.0"
+  },
+  "devDependencies": {
+    "eslint-config-skyscanner": "^9.0.1",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "lint-staged": "^10.4.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ]
+  }
+}
